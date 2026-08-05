@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "decision_schema": "./decision_schema.json",
+  "characters": [
+    {
+      "character_id": "chatgpt",
+      "public_name": "ChatGPT",
+      "enabled": true,
+      "status": "parcial_operacional",
+      "profile_path": "../personagens/chatgpt/perfil_operacional.json",
+      "prompt_path": "../personagens/chatgpt/prompt_operacional.txt",
+      "dossier_path": "../personagens/chatgpt/dossie_resumido.md"
+    },
+    {
+      "character_id": "claude",
+      "public_name": "Claude",
+      "enabled": true,
+      "status": "operacional_sem_auditoria_final",
+      "profile_path": "../personagens/claude/perfil_operacional.json",
+      "prompt_path": "../personagens/claude/prompt_operacional.txt",
+      "dossier_path": "../personagens/claude/dossie_resumido.md"
+    },
+    {
+      "character_id": "gemini",
+      "public_name": "Gemini",
+      "enabled": true,
+      "status": "operacional_completo",
+      "profile_path": "../personagens/gemini/perfil_operacional.json",
+      "prompt_path": "../personagens/gemini/prompt_operacional.txt",
+      "dossier_path": "../personagens/gemini/dossie_resumido.md"
+    },
+    {
+      "character_id": "grok",
+      "public_name": "Grok",
+      "enabled": true,
+      "status": "operacional_sem_json_expandido",
+      "profile_path": "../personagens/grok/perfil_operacional.json",
+      "prompt_path": "../personagens/grok/prompt_operacional.txt",
+      "dossier_path": "../personagens/grok/dossie_resumido.md"
+    },
+    {
+      "character_id": "deepseek",
+      "public_name": "DeepSeek",
+      "enabled": true,
+      "status": "operacional_sem_json_expandido",
+      "profile_path": "../personagens/deepseek/perfil_operacional.json",
+      "prompt_path": "../personagens/deepseek/prompt_operacional.txt",
+      "dossier_path": "../personagens/deepseek/dossie_resumido.md"
+    },
+    {
+      "character_id": "meta_ai",
+      "public_name": "Meta AI",
+      "enabled": true,
+      "status": "operacional_sem_json_expandido",
+      "profile_path": "../personagens/meta_ai/perfil_operacional.json",
+      "prompt_path": "../personagens/meta_ai/prompt_operacional.txt",
+      "dossier_path": "../personagens/meta_ai/dossie_resumido.md"
+    },
+    {
+      "character_id": "manus",
+      "public_name": "Manus",
+      "enabled": true,
+      "status": "operacional_com_alerta_de_integridade",
+      "profile_path": "../personagens/manus/perfil_operacional.json",
+      "prompt_path": "../personagens/manus/prompt_operacional.txt",
+      "dossier_path": "../personagens/manus/dossie_resumido.md"
+    },
+    {
+      "character_id": "perplexity",
+      "public_name": "Perplexity",
+      "enabled": false,
+      "status": "fonte_insuficiente_nao_operacional",
+      "profile_path": "../personagens/perplexity/perfil_operacional.json",
+      "prompt_path": "../personagens/perplexity/prompt_operacional.txt",
+      "dossier_path": "../personagens/perplexity/dossie_resumido.md"
+    }
+  ]
+}

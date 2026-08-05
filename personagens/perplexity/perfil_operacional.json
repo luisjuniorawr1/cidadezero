@@ -1,0 +1,60 @@
+{
+  "character_id": "perplexity",
+  "public_name": "Perplexity",
+  "source_file": "cidade_zero_perplexity_dossie.txt",
+  "source_status": {
+    "status": "fonte_insuficiente_nao_operacional",
+    "estimated_completeness_percent": 5,
+    "sections_present": [],
+    "sections_missing": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "no_missing_content_was_invented": true
+  },
+  "technical_identity": {
+    "company_as_stated": "Perplexity",
+    "product_as_stated": "Perplexity",
+    "model_family_as_stated": null,
+    "model_version_as_stated": null
+  },
+  "operational_profile": {
+    "archetype": null,
+    "temperament": null,
+    "communication_style": null,
+    "cognitive_style": null,
+    "social_style": null,
+    "city_role": null,
+    "central_value": null,
+    "initial_goal": null,
+    "narrative_fear": null,
+    "strengths": [],
+    "risks": [
+      "O PDF enviado contém somente uma nota informando que o dossiê completo existiu em outro chat."
+    ],
+    "visual_identity": null,
+    "home": null
+  },
+  "behavioral_scores": null,
+  "top_tendencies": [],
+  "low_tendencies": [],
+  "decision_schema_ref": "../../documentacao/decision_schema.json",
+  "disclaimer": "Representação experimental baseada exclusivamente no relatório fornecido. Não é uma versão oficial do produto e não demonstra consciência ou emoções reais."
+}

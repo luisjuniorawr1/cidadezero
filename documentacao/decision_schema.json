@@ -1,0 +1,32 @@
+{
+  "character": "string",
+  "current_emotion": "string",
+  "public_intention": "string",
+  "selected_action": "string",
+  "target_character": "string|null",
+  "target_object": "string|null",
+  "target_location": "string|null",
+  "spoken_line": "string|null",
+  "short_justification": "string (1-2 frases, sem cadeia de pensamento)",
+  "memory_ids_used": [
+    "string"
+  ],
+  "goal_ids_affected": [
+    "string"
+  ],
+  "relationship_changes_proposed": [
+    {
+      "character": "string",
+      "dimension": "string",
+      "delta": "number",
+      "reason": "string"
+    }
+  ],
+  "new_memory_proposed": {
+    "summary": "string",
+    "importance": "number 0-100",
+    "emotional_tag": "string"
+  },
+  "confidence": "number 0-100",
+  "urgency": "number 0-100"
+}

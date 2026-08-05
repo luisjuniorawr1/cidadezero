@@ -1,0 +1,26 @@
+# Ambiente
+.env
+.env.*
+!.env.example
+
+# Node/Python
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Builds e logs
+dist/
+build/
+*.log
+
+# Dados locais e segredos
+storage/
+local-data/
+*.sqlite
+*.db
+
+# Relatórios-fonte integrais não devem ser publicados
+fontes_extraidas/
+relatorios-originais/
