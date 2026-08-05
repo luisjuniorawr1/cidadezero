@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07100d">
+  <meta name="theme-color" content="#08110f">
   <title>Cidade Zero — Cidade ao vivo</title>
   <link rel="stylesheet" href="/static/styles.css">
   <link rel="stylesheet" href="/static/city-v2.css">
-  <link rel="stylesheet" href="/static/city-canvas.css">
+  <link rel="stylesheet" href="/static/city-professional.css">
   <link rel="stylesheet" href="/static/journal.css">
 </head>
 <body>
@@ -16,6 +16,11 @@
       <p class="eyebrow">EXPERIMENTO SOCIAL ARTIFICIAL</p>
       <h1>Cidade Zero</h1>
     </div>
+    <nav class="top-navigation" aria-label="Navegação principal">
+      <a href="#cidade-ao-vivo">Cidade</a>
+      <a href="#journal-zero">Jornal Zero</a>
+      <a href="#moradores">Moradores</a>
+    </nav>
     <div class="live-group">
       <span class="live-dot" aria-hidden="true"></span>
       <strong>AO VIVO</strong>
@@ -24,22 +29,25 @@
   </header>
 
   <main>
-    <section class="world-section" aria-labelledby="world-title">
+    <section id="cidade-ao-vivo" class="world-section" aria-labelledby="world-title">
       <div class="section-heading world-heading">
         <div>
           <p class="eyebrow">VISÃO DA CIDADE</p>
-          <h2 id="world-title">Acompanhe os moradores em tempo real</h2>
+          <h2 id="world-title">Uma cidade viva, sem roteiro.</h2>
         </div>
         <span id="updated-at">Aguardando servidor…</span>
       </div>
 
-      <div class="world-layout">
+      <div class="city-workspace">
         <div class="world-card">
           <div class="world-toolbar">
             <span><i class="online-dot"></i><strong id="connection">conectando</strong></span>
             <span id="world-status">Carregando mapa…</span>
-            <span class="canvas-render-badge">Canvas Pixel</span>
-            <button id="clear-follow" type="button">Visão geral</button>
+            <div class="toolbar-actions" aria-label="Controles do mapa">
+              <button id="map-zoom-out" class="map-control" type="button" aria-label="Diminuir zoom">−</button>
+              <button id="map-zoom-in" class="map-control" type="button" aria-label="Aumentar zoom">+</button>
+              <button id="clear-follow" class="map-control" type="button">Visão geral</button>
+            </div>
           </div>
 
           <div id="city-stage" class="city-stage" data-period="day">
@@ -49,16 +57,26 @@
             <canvas
               id="city-canvas"
               class="city-canvas"
-              width="512"
-              height="320"
+              width="960"
+              height="540"
               tabindex="0"
               role="img"
-              aria-label="Mapa pixel art da Cidade Zero. Clique em um morador ou use as setas para acompanhá-lo."
+              aria-label="Mapa pixel art da Cidade Zero. Clique em um morador ou prédio para observar."
             ></canvas>
             <div id="actors-layer" class="actors-layer" aria-label="Moradores da Cidade Zero"></div>
+
+            <div class="map-overlay" aria-hidden="true">
+              <div class="map-status-card"><i></i><span>cidade ao vivo</span></div>
+              <div class="map-legend">
+                <span><i></i>locais</span>
+                <span><i></i>moradores</span>
+              </div>
+            </div>
+
+            <div id="city-tooltip" class="city-tooltip" hidden></div>
             <div class="stage-caption">
               <span id="stage-time">Dia 1 · 07:00</span>
-              <span>clique em um morador para acompanhar</span>
+              <span>clique em um morador ou prédio para observar</span>
             </div>
           </div>
         </div>
@@ -66,8 +84,11 @@
         <aside id="observer-panel" class="observer-panel" aria-live="polite">
           <p class="eyebrow">OBSERVADOR</p>
           <div id="observer-content">
-            <h2>Escolha um morador</h2>
-            <p class="observer-empty">Clique em alguém no mapa para ver sua ação, localização, humor e necessidades.</p>
+            <div class="city-overview-card">
+              <span class="panel-label">VISÃO GERAL</span>
+              <h2>Cidade Zero</h2>
+              <p class="observer-empty">Clique em um morador ou local para acompanhar o que está acontecendo.</p>
+            </div>
           </div>
         </aside>
       </div>
@@ -117,7 +138,7 @@
       <p>O servidor mantém tempo, necessidades, economia, relações e memória. A camada de inteligência consulta os dossiês para decisões relevantes, enquanto o motor local continua responsável pela realidade e pelas consequências.</p>
     </section>
 
-    <section>
+    <section id="moradores">
       <div class="section-heading">
         <div><p class="eyebrow">MORADORES</p><h2>Estado atual</h2></div>
       </div>
@@ -146,7 +167,7 @@
 
   <script src="/static/app.js" defer></script>
   <script src="/static/city-v2.js" defer></script>
-  <script src="/static/city-canvas.js" defer></script>
+  <script src="/static/city-professional.js" defer></script>
   <script src="/static/journal.js" defer></script>
 </body>
 </html>
