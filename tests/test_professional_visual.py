@@ -1,4 +1,8 @@
 from pathlib import Path
+import shutil
+import subprocess
+
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,6 +21,19 @@ def test_index_uses_professional_renderer_only() -> None:
     assert 'id="city-tooltip"' in html
     assert 'id="map-zoom-in"' in html
     assert 'id="map-zoom-out"' in html
+
+
+def test_professional_javascript_has_valid_syntax() -> None:
+    node = shutil.which("node")
+    if node is None:
+        pytest.skip("Node.js não está disponível neste ambiente")
+
+    subprocess.run(
+        [node, "--check", str(STATIC / "city-professional.js")],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
 
 
 def test_map_keeps_text_outside_pixel_art() -> None:
