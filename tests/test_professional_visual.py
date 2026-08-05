@@ -7,64 +7,62 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 STATIC = ROOT / "app" / "static"
+GENERATED_MAP = STATIC / "generated" / "cidade-zero-ai-map-v1.webp"
 
 
-def test_index_uses_professional_renderer_only() -> None:
+def test_index_uses_ai_art_renderer() -> None:
     html = (STATIC / "index.html").read_text(encoding="utf-8")
 
     assert "/static/city-professional.css" in html
-    assert "/static/city-professional.js" in html
-    assert "/static/city-canvas.css" not in html
+    assert "/static/city-ai-art.css" in html
+    assert "/static/city-ai-art.js" in html
+    assert "/static/city-professional.js" not in html
     assert "/static/city-canvas.js" not in html
     assert 'width="960"' in html
     assert 'height="540"' in html
-    assert 'id="city-tooltip"' in html
-    assert 'id="map-zoom-in"' in html
-    assert 'id="map-zoom-out"' in html
+    assert html.index("city-v2.js") < html.index("city-ai-art.js")
 
 
-def test_professional_javascript_has_valid_syntax() -> None:
+def test_ai_art_javascript_has_valid_syntax() -> None:
     node = shutil.which("node")
     if node is None:
         pytest.skip("Node.js não está disponível neste ambiente")
 
     subprocess.run(
-        [node, "--check", str(STATIC / "city-professional.js")],
+        [node, "--check", str(STATIC / "city-ai-art.js")],
         check=True,
         capture_output=True,
         text=True,
     )
 
 
-def test_water_path_uses_coordinate_pairs() -> None:
-    script = (STATIC / "city-professional.js").read_text(encoding="utf-8")
-
-    assert ".map(cameraPoint)" not in script
-    assert "return [screen.x,screen.y]" in script
-    assert "strokePath(points,p.water" in script
+def test_generated_map_asset_is_present() -> None:
+    assert GENERATED_MAP.exists()
+    assert GENERATED_MAP.stat().st_size > 1_000
+    assert GENERATED_MAP.read_bytes().startswith(b"RIFF")
 
 
-def test_map_keeps_text_outside_pixel_art() -> None:
-    script = (STATIC / "city-professional.js").read_text(encoding="utf-8")
+def test_ai_art_keeps_the_existing_state_contract() -> None:
+    script = (STATIC / "city-ai-art.js").read_text(encoding="utf-8")
 
-    assert "buildCity=buildCityProfessional" in script
-    assert "renderActors=renderActorsProfessional" in script
-    assert "state.hitboxes" in script
-    assert "selectLocation" in script
-    assert "ctx.fillText" not in script
-    assert "canvas-render-badge" not in script
+    assert "latestState" in script
+    assert "selectCharacter" in script
+    assert "snapshot.characters" in script
+    assert "character.location" in script
+    assert "window.setInterval(renderPins" in script
+    assert "anchors" in script
 
 
-def test_professional_layout_is_responsive_and_accessible() -> None:
-    css = (STATIC / "city-professional.css").read_text(encoding="utf-8")
+def test_ai_art_layout_is_responsive_and_accessible() -> None:
+    css = (STATIC / "city-ai-art.css").read_text(encoding="utf-8")
     html = (STATIC / "index.html").read_text(encoding="utf-8")
 
-    assert "image-rendering:pixelated" in css
-    assert ".city-tooltip" in css
-    assert "@media (max-width:900px)" in css
+    assert "cidade-zero-ai-map-v1.webp" in css
+    assert ".ai-residents-layer" in css
+    assert ".ai-resident-pin" in css
+    assert "@media(max-width:900px)" in css
     assert "prefers-reduced-motion" in css
-    assert 'tabindex="0"' in html
-    assert 'aria-label="Mapa pixel art da Cidade Zero.' in html
+    assert 'aria-label="Vista ilustrada da Cidade Zero' in html
 
 
 def test_asset_master_documents_production_scope() -> None:

@@ -1,0 +1,150 @@
+.city-stage.ai-art-mode{
+  background:
+    linear-gradient(180deg,rgba(5,12,15,.06),rgba(5,12,15,.18)),
+    url('/static/generated/cidade-zero-ai-map-v1.webp') center/cover no-repeat;
+  image-rendering:auto;
+  overflow:hidden;
+}
+.ai-art-mode .sky-glow,
+.ai-art-mode .city-ground,
+.ai-art-mode .city-map,
+.ai-art-mode .actors-layer,
+.ai-art-mode .city-canvas{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+.ai-art-mode::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:9;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 52%,transparent 36%,rgba(2,8,10,.18) 100%),
+    linear-gradient(180deg,rgba(5,10,13,.04),rgba(5,10,13,.16));
+}
+.ai-art-mode[data-period='night']::before{
+  background:
+    linear-gradient(180deg,rgba(6,18,35,.15),rgba(2,8,18,.34)),
+    radial-gradient(circle at 50% 48%,transparent 32%,rgba(0,6,12,.2) 100%);
+  mix-blend-mode:multiply;
+}
+.ai-art-mode[data-period='dawn']::before{background:linear-gradient(180deg,rgba(255,173,116,.08),rgba(6,12,16,.18))}
+.ai-art-mode[data-period='dusk']::before{background:linear-gradient(180deg,rgba(166,91,120,.12),rgba(7,10,22,.25))}
+.ai-art-credit{
+  position:absolute;
+  right:18px;
+  bottom:48px;
+  z-index:15;
+  padding:6px 9px;
+  border:1px solid rgba(167,236,198,.22);
+  border-radius:999px;
+  background:rgba(5,16,18,.76);
+  color:#c9dfd4;
+  font:700 9px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  backdrop-filter:blur(8px);
+}
+.ai-residents-layer{
+  position:absolute;
+  inset:0;
+  z-index:14;
+  pointer-events:none;
+}
+.ai-resident-pin{
+  --pin:#75e6ac;
+  position:absolute;
+  transform:translate(-50%,-82%);
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:48px;
+  padding:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  pointer-events:auto;
+  filter:drop-shadow(0 7px 8px rgba(0,0,0,.45));
+  transition:transform .18s ease,filter .18s ease;
+}
+.ai-resident-pin:hover,
+.ai-resident-pin.is-selected{
+  transform:translate(-50%,-92%) scale(1.12);
+  filter:drop-shadow(0 9px 13px rgba(0,0,0,.58));
+}
+.ai-pin-core{
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border:3px solid rgba(6,17,19,.92);
+  border-radius:50%;
+  background:linear-gradient(145deg,var(--pin),color-mix(in srgb,var(--pin) 55%,#071111));
+  box-shadow:0 0 0 2px rgba(239,255,247,.82),0 0 0 5px color-mix(in srgb,var(--pin) 55%,transparent);
+  color:#06110f;
+  font:900 10px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:-.04em;
+}
+.ai-pin-core::after{
+  content:'';
+  position:absolute;
+  left:50%;
+  top:29px;
+  width:10px;
+  height:10px;
+  transform:translateX(-50%) rotate(45deg);
+  border-right:3px solid rgba(6,17,19,.92);
+  border-bottom:3px solid rgba(6,17,19,.92);
+  background:var(--pin);
+}
+.ai-resident-label{
+  position:absolute;
+  left:50%;
+  bottom:49px;
+  min-width:max-content;
+  max-width:180px;
+  transform:translateX(-50%) translateY(4px);
+  padding:7px 9px;
+  border:1px solid rgba(178,239,204,.24);
+  border-radius:9px;
+  background:rgba(3,13,15,.9);
+  color:#eef9f3;
+  font:800 10px/1.15 system-ui,sans-serif;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .15s ease,transform .15s ease;
+  backdrop-filter:blur(9px);
+}
+.ai-resident-label small{
+  display:block;
+  margin-top:4px;
+  color:#a9c6b8;
+  font-size:9px;
+  font-weight:600;
+  white-space:normal;
+}
+.ai-resident-pin:hover .ai-resident-label,
+.ai-resident-pin.is-selected .ai-resident-label{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+.ai-resident-pin.is-selected .ai-pin-core{
+  box-shadow:0 0 0 2px #fff7c8,0 0 0 6px rgba(248,210,105,.58),0 0 24px rgba(248,210,105,.48);
+}
+@media(max-width:900px){
+  .ai-art-credit{display:none}
+  .ai-resident-pin{width:36px;height:42px}
+  .ai-pin-core{width:28px;height:28px;font-size:9px}
+  .ai-pin-core::after{top:24px}
+}
+@media(max-width:620px){
+  .city-stage.ai-art-mode{background-position:center center}
+  .ai-resident-label{display:none}
+  .ai-resident-pin{transform:translate(-50%,-72%) scale(.88)}
+}
+@media(prefers-reduced-motion:reduce){
+  .ai-resident-pin,.ai-resident-label{transition:none}
+}
