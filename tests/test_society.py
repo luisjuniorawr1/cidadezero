@@ -12,6 +12,11 @@ def test_old_needs_payload_migrates_with_defaults() -> None:
     assert needs.health == 92
 
 
+def test_legacy_life_payload_requests_profile_specific_migration() -> None:
+    life = CitizenLife.from_dict(None)
+    assert life.job_title == ""
+
+
 def test_rent_is_paid_when_due_and_affordable() -> None:
     needs = HumanNeeds()
     life = CitizenLife(money=100, rent_amount=42, last_rent_day=0)
@@ -72,13 +77,18 @@ def test_problem_can_change_mood() -> None:
 
 
 def test_incident_is_at_most_once_per_day() -> None:
+    class IncidentRng:
+        @staticmethod
+        def random() -> float:
+            return 0.0
+
+        @staticmethod
+        def choice(values):
+            return values[0]
+
     needs = HumanNeeds()
     life = CitizenLife()
-    rng = random.Random(8)
-    first = None
-    for _ in range(100):
-        first = SocietyRules.maybe_incident(life, needs, day=3, rng=rng)
-        if first:
-            break
+    rng = IncidentRng()
+    first = SocietyRules.maybe_incident(life, needs, day=3, rng=rng)
     assert first is not None
     assert SocietyRules.maybe_incident(life, needs, day=3, rng=rng) is None
