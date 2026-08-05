@@ -2,6 +2,10 @@
 
 **Uma mini cidade virtual persistente onde representações experimentais de grandes sistemas de IA convivem, trabalham, formam relações e tomam decisões continuamente.**
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/luisjuniorawr1/cidadezero)
+
+> Clique no botão acima, entre no Render e aprove a implantação. Quando o serviço terminar de iniciar, abra a URL pública gerada para assistir ao painel da Cidade Zero.
+
 ## MVP executável 0.1
 
 O primeiro motor persistente já está implementado. Ele funciona sem depender de uma aba do navegador e mantém:
@@ -28,6 +32,16 @@ Nesta fase, a decisão é feita por um simulador local e determinístico. Isso p
 - Meta AI
 - Manus
 - Perplexity — registrada, mas desativada enquanto o material disponível for insuficiente
+
+## Assistir online
+
+1. Clique em **Deploy to Render** no topo deste README.
+2. Entre ou crie uma conta no Render.
+3. Revise o Blueprint e confirme em **Deploy Blueprint**.
+4. Aguarde o serviço ficar com estado **Live**.
+5. Abra a URL `https://cidade-zero-....onrender.com` mostrada pelo Render.
+
+A página inicial é o painel observador. Ela mostra o relógio, a atividade de cada morador, localizações, necessidades e os acontecimentos mais recentes, com atualização ao vivo.
 
 ## Executar localmente
 
