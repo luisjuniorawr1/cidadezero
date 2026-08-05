@@ -7,6 +7,7 @@
   <title>Cidade Zero — Cidade ao vivo</title>
   <link rel="stylesheet" href="/static/styles.css">
   <link rel="stylesheet" href="/static/city-v2.css">
+  <link rel="stylesheet" href="/static/city-canvas.css">
   <link rel="stylesheet" href="/static/journal.css">
 </head>
 <body>
@@ -37,6 +38,7 @@
           <div class="world-toolbar">
             <span><i class="online-dot"></i><strong id="connection">conectando</strong></span>
             <span id="world-status">Carregando mapa…</span>
+            <span class="canvas-render-badge">Canvas Pixel</span>
             <button id="clear-follow" type="button">Visão geral</button>
           </div>
 
@@ -44,6 +46,15 @@
             <div class="sky-glow" aria-hidden="true"></div>
             <div class="city-ground" aria-hidden="true"></div>
             <div id="city-map" class="city-map" aria-hidden="true"></div>
+            <canvas
+              id="city-canvas"
+              class="city-canvas"
+              width="512"
+              height="320"
+              tabindex="0"
+              role="img"
+              aria-label="Mapa pixel art da Cidade Zero. Clique em um morador ou use as setas para acompanhá-lo."
+            ></canvas>
             <div id="actors-layer" class="actors-layer" aria-label="Moradores da Cidade Zero"></div>
             <div class="stage-caption">
               <span id="stage-time">Dia 1 · 07:00</span>
@@ -135,6 +146,7 @@
 
   <script src="/static/app.js" defer></script>
   <script src="/static/city-v2.js" defer></script>
+  <script src="/static/city-canvas.js" defer></script>
   <script src="/static/journal.js" defer></script>
 </body>
 </html>
