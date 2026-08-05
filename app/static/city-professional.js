@@ -189,7 +189,10 @@
   }
 
   function drawWater(p){
-    const points=[{x:670,y:520},{x:960,y:435}].map(cameraPoint);
+    const points=[{x:670,y:520},{x:960,y:435}].map(point=>{
+      const screen=cameraPoint(point);
+      return [screen.x,screen.y];
+    });
     strokePath(points,'#17363d',52*state.camera.scale);
     strokePath(points,p.water,42*state.camera.scale);
     strokePath(points,p.waterLight,3*state.camera.scale);

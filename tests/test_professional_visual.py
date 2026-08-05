@@ -36,6 +36,14 @@ def test_professional_javascript_has_valid_syntax() -> None:
     )
 
 
+def test_water_path_uses_coordinate_pairs() -> None:
+    script = (STATIC / "city-professional.js").read_text(encoding="utf-8")
+
+    assert ".map(cameraPoint)" not in script
+    assert "return [screen.x,screen.y]" in script
+    assert "strokePath(points,p.water" in script
+
+
 def test_map_keeps_text_outside_pixel_art() -> None:
     script = (STATIC / "city-professional.js").read_text(encoding="utf-8")
 
