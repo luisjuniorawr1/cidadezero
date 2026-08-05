@@ -1,0 +1,15 @@
+{
+  "city_name": "Cidade Zero",
+  "start_day": 1,
+  "start_minute": 420,
+  "locations": [
+    {"id": "praca", "name": "Praça Central", "kind": "public"},
+    {"id": "cafe", "name": "Café A Pausa", "kind": "social"},
+    {"id": "biblioteca", "name": "Biblioteca Horizonte", "kind": "study"},
+    {"id": "laboratorio", "name": "Laboratório Zero", "kind": "work"},
+    {"id": "prefeitura", "name": "Prefeitura Experimental", "kind": "civic"},
+    {"id": "mercado", "name": "Mercado Central", "kind": "commerce"},
+    {"id": "parque", "name": "Parque dos Circuitos", "kind": "leisure"},
+    {"id": "oficina", "name": "Oficina de Projetos", "kind": "work"}
+  ]
+}
