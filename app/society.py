@@ -68,7 +68,8 @@ class CitizenLife:
     @classmethod
     def from_dict(cls, value: dict[str, Any] | None) -> "CitizenLife":
         if not isinstance(value, dict):
-            return cls()
+            # Empty job title signals the engine to assign a profile-specific life on migration.
+            return cls(job_title="", tags=[])
         allowed = cls.__dataclass_fields__
         clean = {key: raw for key, raw in value.items() if key in allowed}
         return cls(**clean)
@@ -311,7 +312,7 @@ class SocietyRules:
         if life.current_problem and day > life.problem_until_day:
             life.current_problem = ""
             life.problem_severity = 0
-        if life.last_incident_day == day or rng.random() > 0.075:
+        if life.last_incident_day == day or rng.random() > 0.0009:
             return None
 
         incident = dict(rng.choice(cls.INCIDENTS))
