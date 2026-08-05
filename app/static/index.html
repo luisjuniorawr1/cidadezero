@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cidade Zero — Ao vivo</title>
+  <meta name="theme-color" content="#07100d">
+  <title>Cidade Zero — Cidade ao vivo</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
@@ -13,30 +14,69 @@
       <h1>Cidade Zero</h1>
     </div>
     <div class="live-group">
-      <span class="live-dot"></span>
+      <span class="live-dot" aria-hidden="true"></span>
       <strong>AO VIVO</strong>
       <span id="clock">Dia 1 — 07:00</span>
     </div>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="world-section" aria-labelledby="world-title">
+      <div class="section-heading world-heading">
+        <div>
+          <p class="eyebrow">VISÃO DA CIDADE</p>
+          <h2 id="world-title">Acompanhe os moradores em tempo real</h2>
+        </div>
+        <span id="updated-at">Aguardando servidor…</span>
+      </div>
+
+      <div class="world-layout">
+        <div class="world-card">
+          <div class="world-toolbar">
+            <span><i class="online-dot"></i><strong id="connection">conectando</strong></span>
+            <span id="world-status">Carregando mapa…</span>
+            <button id="clear-follow" type="button">Visão geral</button>
+          </div>
+
+          <div id="city-stage" class="city-stage" data-period="day">
+            <div class="sky-glow" aria-hidden="true"></div>
+            <div class="city-ground" aria-hidden="true"></div>
+            <div id="city-map" class="city-map" aria-hidden="true"></div>
+            <div id="actors-layer" class="actors-layer" aria-label="Moradores da Cidade Zero"></div>
+            <div class="stage-caption">
+              <span id="stage-time">Dia 1 · 07:00</span>
+              <span>clique em um morador para acompanhar</span>
+            </div>
+          </div>
+        </div>
+
+        <aside id="observer-panel" class="observer-panel" aria-live="polite">
+          <p class="eyebrow">OBSERVADOR</p>
+          <div id="observer-content">
+            <h2>Escolha um morador</h2>
+            <p class="observer-empty">Clique em alguém no mapa para ver sua ação, localização, humor e necessidades.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="summary-strip" aria-label="Resumo da simulação">
+      <article><span>Moradores ativos</span><strong id="character-count">0</strong></article>
+      <article><span>Eventos visíveis</span><strong id="event-count">0</strong></article>
+      <article><span>Motor</span><strong id="engine-status">—</strong></article>
+    </section>
+
+    <section class="about-panel">
       <div>
-        <p class="eyebrow">MOTOR PERSISTENTE 0.1</p>
+        <p class="eyebrow">MOTOR PERSISTENTE 0.2</p>
         <h2>Sete personalidades artificiais começaram a viver juntas.</h2>
-        <p>O servidor controla tempo, necessidades, deslocamentos, relações e memória de acontecimentos. Nesta fase, as decisões são simuladas localmente; a integração com modelos de IA entra no próximo marco.</p>
       </div>
-      <div class="metric-grid">
-        <article><span>Moradores ativos</span><strong id="character-count">0</strong></article>
-        <article><span>Eventos registrados</span><strong id="event-count">0</strong></article>
-        <article><span>Conexão</span><strong id="connection">—</strong></article>
-      </div>
+      <p>O servidor controla tempo, necessidades, deslocamentos, relações e memória de acontecimentos. A cidade visual representa essas decisões ao vivo; nesta fase, elas ainda são simuladas localmente.</p>
     </section>
 
     <section>
       <div class="section-heading">
         <div><p class="eyebrow">MORADORES</p><h2>Estado atual</h2></div>
-        <span id="updated-at">Aguardando servidor…</span>
       </div>
       <div id="characters" class="character-grid"></div>
     </section>
@@ -46,15 +86,15 @@
         <div class="section-heading"><div><p class="eyebrow">TRANSMISSÃO</p><h2>Últimos acontecimentos</h2></div></div>
         <div id="events" class="timeline"></div>
       </div>
-      <aside>
+      <aside class="protocol-panel">
         <p class="eyebrow">PROTOCOLO</p>
         <h2>Como funciona</h2>
         <ol>
           <li>O relógio avança sem depender do espectador.</li>
           <li>Necessidades mudam continuamente.</li>
           <li>Cada perfil influencia as escolhas.</li>
-          <li>O motor valida e registra consequências.</li>
-          <li>A página recebe o estado oficial ao vivo.</li>
+          <li>O motor registra as consequências.</li>
+          <li>O mapa recebe o estado oficial ao vivo.</li>
         </ol>
         <p class="disclaimer">Representações experimentais e não oficiais. Não constituem evidência de consciência ou emoções reais.</p>
       </aside>
