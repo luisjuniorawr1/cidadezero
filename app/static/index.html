@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cidade Zero — Ao vivo</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">EXPERIMENTO SOCIAL ARTIFICIAL</p>
+      <h1>Cidade Zero</h1>
+    </div>
+    <div class="live-group">
+      <span class="live-dot"></span>
+      <strong>AO VIVO</strong>
+      <span id="clock">Dia 1 — 07:00</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">MOTOR PERSISTENTE 0.1</p>
+        <h2>Sete personalidades artificiais começaram a viver juntas.</h2>
+        <p>O servidor controla tempo, necessidades, deslocamentos, relações e memória de acontecimentos. Nesta fase, as decisões são simuladas localmente; a integração com modelos de IA entra no próximo marco.</p>
+      </div>
+      <div class="metric-grid">
+        <article><span>Moradores ativos</span><strong id="character-count">0</strong></article>
+        <article><span>Eventos registrados</span><strong id="event-count">0</strong></article>
+        <article><span>Conexão</span><strong id="connection">—</strong></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <div><p class="eyebrow">MORADORES</p><h2>Estado atual</h2></div>
+        <span id="updated-at">Aguardando servidor…</span>
+      </div>
+      <div id="characters" class="character-grid"></div>
+    </section>
+
+    <section class="lower-grid">
+      <div>
+        <div class="section-heading"><div><p class="eyebrow">TRANSMISSÃO</p><h2>Últimos acontecimentos</h2></div></div>
+        <div id="events" class="timeline"></div>
+      </div>
+      <aside>
+        <p class="eyebrow">PROTOCOLO</p>
+        <h2>Como funciona</h2>
+        <ol>
+          <li>O relógio avança sem depender do espectador.</li>
+          <li>Necessidades mudam continuamente.</li>
+          <li>Cada perfil influencia as escolhas.</li>
+          <li>O motor valida e registra consequências.</li>
+          <li>A página recebe o estado oficial ao vivo.</li>
+        </ol>
+        <p class="disclaimer">Representações experimentais e não oficiais. Não constituem evidência de consciência ou emoções reais.</p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
