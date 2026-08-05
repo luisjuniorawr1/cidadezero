@@ -13,8 +13,18 @@ services:
       - key: DATABASE_PATH
         value: /app/data/cidade_zero.db
       - key: CITY_TICK_SECONDS
-        value: "1"
+        value: "12"
       - key: CITY_MINUTES_PER_TICK
-        value: "5"
+        value: "1"
       - key: ADMIN_TOKEN
         generateValue: true
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
+      - key: OPENAI_MAX_CALLS_PER_DAY
+        value: "300"
+      - key: OPENAI_MAX_OUTPUT_TOKENS
+        value: "300"
+      - key: OPENAI_CHARACTER_COOLDOWN_CITY_MINUTES
+        value: "180"

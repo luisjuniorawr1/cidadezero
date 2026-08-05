@@ -7,6 +7,7 @@
   <title>Cidade Zero — Cidade ao vivo</title>
   <link rel="stylesheet" href="/static/styles.css">
   <link rel="stylesheet" href="/static/city-v2.css">
+  <link rel="stylesheet" href="/static/journal.css">
 </head>
 <body>
   <header class="topbar">
@@ -67,12 +68,42 @@
       <article><span>Motor</span><strong id="engine-status">—</strong></article>
     </section>
 
+    <section id="journal-zero" class="journal-panel" aria-labelledby="journal-title">
+      <div class="journal-heading">
+        <div>
+          <p class="eyebrow">ARQUIVO LOCAL</p>
+          <h2 id="journal-title">Jornal Zero</h2>
+        </div>
+        <div class="journal-status-stack">
+          <span id="journal-status">Carregando edição…</span>
+          <span id="intelligence-status">Verificando inteligência…</span>
+        </div>
+      </div>
+
+      <div class="journal-layout">
+        <div id="journal-return-brief" class="journal-return-brief" aria-live="polite">
+          <span class="journal-kicker">ACOMPANHAMENTO</span>
+          <strong>Consultando o histórico</strong>
+        </div>
+
+        <div id="journal-edition" class="journal-edition">
+          <p class="journal-empty">Preparando a edição mais recente.</p>
+        </div>
+
+        <aside class="journal-archive-wrap">
+          <span class="journal-kicker">ARQUIVO</span>
+          <h3>Edições anteriores</h3>
+          <div id="journal-archive" class="journal-archive"></div>
+        </aside>
+      </div>
+    </section>
+
     <section class="about-panel">
       <div>
-        <p class="eyebrow">MOTOR PERSISTENTE 0.2</p>
-        <h2>Sete personalidades artificiais começaram a viver juntas.</h2>
+        <p class="eyebrow">MOTOR PERSISTENTE 0.4</p>
+        <h2>Sete personalidades artificiais vivem sem roteiro.</h2>
       </div>
-      <p>O servidor controla tempo, necessidades, deslocamentos, relações e memória de acontecimentos. A cidade visual representa essas decisões ao vivo; nesta fase, elas ainda são simuladas localmente.</p>
+      <p>O servidor mantém tempo, necessidades, economia, relações e memória. A camada de inteligência consulta os dossiês para decisões relevantes, enquanto o motor local continua responsável pela realidade e pelas consequências.</p>
     </section>
 
     <section>
@@ -92,10 +123,10 @@
         <h2>Como funciona</h2>
         <ol>
           <li>O relógio avança sem depender do espectador.</li>
-          <li>Necessidades mudam continuamente.</li>
-          <li>Cada perfil influencia as escolhas.</li>
-          <li>O motor registra as consequências.</li>
-          <li>O mapa recebe o estado oficial ao vivo.</li>
+          <li>Necessidades e recursos mudam continuamente.</li>
+          <li>Cada dossiê influencia decisões, sem impor um roteiro.</li>
+          <li>Outros moradores podem aceitar ou recusar propostas.</li>
+          <li>O motor registra consequências e o jornal apenas relata.</li>
         </ol>
         <p class="disclaimer">Representações experimentais e não oficiais. Não constituem evidência de consciência ou emoções reais.</p>
       </aside>
@@ -104,5 +135,6 @@
 
   <script src="/static/app.js" defer></script>
   <script src="/static/city-v2.js" defer></script>
+  <script src="/static/journal.js" defer></script>
 </body>
 </html>
