@@ -6,7 +6,7 @@
   const zoomOut = document.querySelector('#map-zoom-out');
   if (!stage) return;
 
-  stage.classList.add('ai-art-mode');
+  stage.classList.add('ai-art-mode', 'professional-map');
   if (zoomIn) zoomIn.hidden = true;
   if (zoomOut) zoomOut.hidden = true;
 
