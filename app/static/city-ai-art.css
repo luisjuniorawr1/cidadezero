@@ -1,7 +1,12 @@
 .city-stage.ai-art-mode{
+  position:relative;
+  height:auto!important;
+  min-height:0!important;
+  aspect-ratio:16/9;
   background:
-    linear-gradient(180deg,rgba(5,12,15,.06),rgba(5,12,15,.18)),
-    url('/static/generated/cidade-zero-ai-map-v1.webp') center/cover no-repeat;
+    linear-gradient(180deg,rgba(5,12,15,.02),rgba(5,12,15,.07)),
+    url('/static/generated/cidade-zero-ai-map-v1.webp') center/100% 100% no-repeat;
+  background-color:#07110f;
   image-rendering:auto;
   overflow:hidden;
 }
@@ -21,17 +26,17 @@
   z-index:9;
   pointer-events:none;
   background:
-    radial-gradient(circle at 50% 52%,transparent 36%,rgba(2,8,10,.18) 100%),
-    linear-gradient(180deg,rgba(5,10,13,.04),rgba(5,10,13,.16));
+    radial-gradient(circle at 50% 52%,transparent 52%,rgba(2,8,10,.08) 100%),
+    linear-gradient(180deg,rgba(5,10,13,.01),rgba(5,10,13,.05));
 }
 .ai-art-mode[data-period='night']::before{
   background:
-    linear-gradient(180deg,rgba(6,18,35,.15),rgba(2,8,18,.34)),
-    radial-gradient(circle at 50% 48%,transparent 32%,rgba(0,6,12,.2) 100%);
-  mix-blend-mode:multiply;
+    linear-gradient(180deg,rgba(6,18,35,.02),rgba(2,8,18,.1)),
+    radial-gradient(circle at 50% 48%,transparent 56%,rgba(0,6,12,.08) 100%);
+  mix-blend-mode:normal;
 }
-.ai-art-mode[data-period='dawn']::before{background:linear-gradient(180deg,rgba(255,173,116,.08),rgba(6,12,16,.18))}
-.ai-art-mode[data-period='dusk']::before{background:linear-gradient(180deg,rgba(166,91,120,.12),rgba(7,10,22,.25))}
+.ai-art-mode[data-period='dawn']::before{background:linear-gradient(180deg,rgba(255,173,116,.06),rgba(6,12,16,.05))}
+.ai-art-mode[data-period='dusk']::before{background:linear-gradient(180deg,rgba(166,91,120,.08),rgba(7,10,22,.1))}
 .ai-art-credit{
   position:absolute;
   right:18px;

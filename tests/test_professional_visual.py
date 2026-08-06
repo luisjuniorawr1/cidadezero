@@ -51,6 +51,18 @@ def test_ai_art_keeps_the_existing_state_contract() -> None:
     assert "character.location" in script
     assert "window.setInterval(renderPins" in script
     assert "anchors" in script
+    assert "professional-map" in script
+
+
+def test_ai_art_uses_native_widescreen_without_cover_crop() -> None:
+    css = (STATIC / "city-ai-art.css").read_text(encoding="utf-8")
+
+    assert "height:auto!important" in css
+    assert "min-height:0!important" in css
+    assert "aspect-ratio:16/9" in css
+    assert "center/100% 100% no-repeat" in css
+    assert "center/cover no-repeat" not in css
+    assert "mix-blend-mode:normal" in css
 
 
 def test_ai_art_layout_is_responsive_and_accessible() -> None:

@@ -23,6 +23,7 @@ def test_ai_art_overlay_keeps_character_selection() -> None:
     assert "character.public_name" in javascript
     assert "character.action" in javascript
     assert "character.location" in javascript
+    assert "stage.classList.add('ai-art-mode', 'professional-map')" in javascript
 
 
 def test_generated_background_and_markers_are_styled() -> None:
@@ -30,6 +31,9 @@ def test_generated_background_and_markers_are_styled() -> None:
 
     assert "cidade-zero-ai-map-v1.webp" in stylesheet
     assert ".city-stage.ai-art-mode" in stylesheet
+    assert "aspect-ratio:16/9" in stylesheet
+    assert "center/100% 100% no-repeat" in stylesheet
+    assert "center/cover no-repeat" not in stylesheet
     assert ".ai-resident-pin" in stylesheet
     assert ".ai-resident-label" in stylesheet
     assert "prefers-reduced-motion" in stylesheet
